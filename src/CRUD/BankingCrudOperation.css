@@ -1,0 +1,52 @@
+.App {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .form-container {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  button {
+    margin: 5px;
+    padding: 8px;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  .save-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .customer-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .customer-table th,
+  .customer-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .customer-table th {
+    background-color: #f2f2f2;
+  }
+  

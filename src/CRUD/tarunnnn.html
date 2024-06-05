@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autocomplete Example</title>
+<style>
+    #autocomplete-list {
+        border: 1px solid #ccc;
+        border-top: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        z-index: 1000;
+        background-color: #fff;
+        width: 200px;
+    }
+    #autocomplete-list li {
+        padding: 10px;
+        cursor: pointer;
+    }
+    #autocomplete-list li:hover {
+        background-color: #f1f1f1;
+    }
+</style>
+</head>
+<body>
+
+<h2>Autocomplete Example</h2>
+
+<input type="text" id="search-bar" placeholder="Type something...">
+
+<div id="autocomplete-container">
+    <ul id="autocomplete-list"></ul>
+</div>
+
+<script>
+    // Sample list of autocomplete suggestions
+    const suggestions = ["Apple", "Banana", "Orange", "Pineapple", "Mango"];
+
+    const searchBar = document.getElementById("search-bar");
+    const autocompleteList = document.getElementById("autocomplete-list");
+
+    // Event listener for input in search bar
+    searchBar.addEventListener("input", function() {
+        const userInput = this.value;
+        autocomplete(userInput);
+    });
+
+    // Function to generate autocomplete suggestions
+    function autocomplete(input) {
+        autocompleteList.innerHTML = ''; // Clear previous suggestions
+        const filteredSuggestions = suggestions.filter(function(suggestion) {
+            return suggestion.toLowerCase().startsWith(input.toLowerCase());
+        });
+        filteredSuggestions.forEach(function(suggestion) {
+            const listItem = document.createElement("li");
+            listItem.textContent = suggestion;
+            listItem.addEventListener("click", function() {
+                searchBar.value = suggestion;
+                autocompleteList.innerHTML = ''; // Clear suggestions after selection
+            });
+            autocompleteList.appendChild(listItem);
+        });
+    }
+    
+</script>
+
+
+</body>
+</html>
